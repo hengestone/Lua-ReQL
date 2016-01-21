@@ -69,6 +69,83 @@ class Datum:
     class AssocPair:
         pass
 
+class GeoTerm:
+    class GeoTermType:
+        GEOJSON = 157
+        TO_GEOJSON = 158
+        POINT = 159
+        LINE = 160
+        POLYGON = 161
+        DISTANCE = 162
+        INTERSECTS = 163
+        INCLUDES = 164
+        CIRCLE = 165
+        GET_INTERSECTING = 166
+        FILL = 167
+        GET_NEAREST = 168
+        POLYGON_SUB = 171
+
+class MathTerm:
+    class MathTermType:
+        LT = 19
+        LE = 20
+        GT = 21
+        GE = 22
+        NOT = 23
+        ADD = 24
+        SUB = 25
+        MUL = 26
+        DIV = 27
+        MOD = 28
+        FLOOR = 183
+        CEIL = 184
+        ROUND = 185
+        SUM = 145
+        AVG = 146
+        MIN = 147
+        MAX = 148
+
+class TimeTerm:
+    class TimeTermType:
+        ISO8601 = 99
+        TO_ISO8601 = 100
+        EPOCH_TIME = 101
+        TO_EPOCH_TIME = 102
+        NOW = 103
+        IN_TIMEZONE = 104
+        DURING = 105
+        DATE = 106
+        TIME_OF_DAY = 126
+        TIMEZONE = 127
+        YEAR = 128
+        MONTH = 129
+        DAY = 130
+        DAY_OF_WEEK = 131
+        DAY_OF_YEAR = 132
+        HOURS = 133
+        MINUTES = 134
+        SECONDS = 135
+        TIME = 136
+        MONDAY = 107
+        TUESDAY = 108
+        WEDNESDAY = 109
+        THURSDAY = 110
+        FRIDAY = 111
+        SATURDAY = 112
+        SUNDAY = 113
+        JANUARY = 114
+        FEBRUARY = 115
+        MARCH = 116
+        APRIL = 117
+        MAY = 118
+        JUNE = 119
+        JULY = 120
+        AUGUST = 121
+        SEPTEMBER = 122
+        OCTOBER = 123
+        NOVEMBER = 124
+        DECEMBER = 125
+
 class Term:
     class TermType:
         DATUM = 1
@@ -86,19 +163,6 @@ class Term:
         GET_ALL = 78
         EQ = 17
         NE = 18
-        LT = 19
-        LE = 20
-        GT = 21
-        GE = 22
-        NOT = 23
-        ADD = 24
-        SUB = 25
-        MUL = 26
-        DIV = 27
-        MOD = 28
-        FLOOR = 183
-        CEIL = 184
-        ROUND = 185
         APPEND = 29
         PREPEND = 80
         DIFFERENCE = 95
@@ -182,69 +246,14 @@ class Term:
         DEFAULT = 92
         JSON = 98
         TO_JSON_STRING = 172
-        ISO8601 = 99
-        TO_ISO8601 = 100
-        EPOCH_TIME = 101
-        TO_EPOCH_TIME = 102
-        NOW = 103
-        IN_TIMEZONE = 104
-        DURING = 105
-        DATE = 106
-        TIME_OF_DAY = 126
-        TIMEZONE = 127
-        YEAR = 128
-        MONTH = 129
-        DAY = 130
-        DAY_OF_WEEK = 131
-        DAY_OF_YEAR = 132
-        HOURS = 133
-        MINUTES = 134
-        SECONDS = 135
-        TIME = 136
-        MONDAY = 107
-        TUESDAY = 108
-        WEDNESDAY = 109
-        THURSDAY = 110
-        FRIDAY = 111
-        SATURDAY = 112
-        SUNDAY = 113
-        JANUARY = 114
-        FEBRUARY = 115
-        MARCH = 116
-        APRIL = 117
-        MAY = 118
-        JUNE = 119
-        JULY = 120
-        AUGUST = 121
-        SEPTEMBER = 122
-        OCTOBER = 123
-        NOVEMBER = 124
-        DECEMBER = 125
         LITERAL = 137
         GROUP = 144
-        SUM = 145
-        AVG = 146
-        MIN = 147
-        MAX = 148
         SPLIT = 149
         UNGROUP = 150
         RANDOM = 151
         CHANGES = 152
         ARGS = 154
         BINARY = 155
-        GEOJSON = 157
-        TO_GEOJSON = 158
-        POINT = 159
-        LINE = 160
-        POLYGON = 161
-        DISTANCE = 162
-        INTERSECTS = 163
-        INCLUDES = 164
-        CIRCLE = 165
-        GET_INTERSECTING = 166
-        FILL = 167
-        GET_NEAREST = 168
-        POLYGON_SUB = 171
         MINVAL = 180
         MAXVAL = 181
 

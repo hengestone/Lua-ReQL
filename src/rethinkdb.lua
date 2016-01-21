@@ -79,28 +79,20 @@ function r._socket()
 end
 
 local DATUMTERM, ReQLOp
-local ADD, AND, APPEND, APRIL, ARGS, ASC, AUGUST, AVG, BETWEEN
-local BETWEEN_DEPRECATED, BINARY, BRACKET, BRANCH, CEIL, CHANGES, CHANGE_AT
-local CIRCLE, COERCE_TO, CONCAT_MAP, CONFIG, CONTAINS, COUNT, DATE, DAY
-local DAY_OF_WEEK, DAY_OF_YEAR, DB, DB_CREATE, DB_DROP, DB_LIST, DECEMBER
-local DEFAULT, DELETE, DELETE_AT, DESC, DIFFERENCE, DISTANCE, DISTINCT, DIV
-local DOWNCASE, DURING, EPOCH_TIME, EQ, EQ_JOIN, ERROR, FEBRUARY, FILL, FILTER
-local FLOOR, FOR_EACH, FRIDAY, FUNC, FUNCALL, GE, GEOJSON, GET, GET_ALL
-local GET_FIELD, GET_INTERSECTING, GET_NEAREST, GROUP, GT, HAS_FIELDS, HOURS
-local HTTP, INCLUDES, INDEX_CREATE, INDEX_DROP, INDEX_LIST, INDEX_RENAME
-local INDEX_STATUS, INDEX_WAIT, INFO, INNER_JOIN, INSERT, INSERT_AT
-local INTERSECTS, IN_TIMEZONE, ISO8601, IS_EMPTY, JANUARY, JAVASCRIPT, JSON
-local JULY, JUNE, KEYS, LE, LIMIT, LINE, LITERAL, LT, MAKE_ARRAY, MAKE_OBJ
-local MAP, MARCH, MATCH, MAX, MAXVAL, MAY, MERGE, MIN, MINUTES, MINVAL, MOD
-local MONDAY, MONTH, MUL, NE, NOT, NOVEMBER, NOW, NTH, OBJECT, OCTOBER
-local OFFSETS_OF, OR, ORDER_BY, OUTER_JOIN, PLUCK, POINT, POLYGON, POLYGON_SUB
-local PREPEND, RANDOM, RANGE, REBALANCE, RECONFIGURE, REDUCE, REPLACE, ROUND
-local SAMPLE, SATURDAY, SECONDS, SEPTEMBER, SET_DIFFERENCE, SET_INSERT
-local SET_INTERSECTION, SET_UNION, SKIP, SLICE, SPLICE_AT, SPLIT, STATUS, SUB
-local SUM, SUNDAY, SYNC, TABLE, TABLE_CREATE, TABLE_DROP, TABLE_LIST, THURSDAY
-local TIME, TIMEZONE, TIME_OF_DAY, TO_EPOCH_TIME, TO_GEOJSON, TO_ISO8601
-local TO_JSON_STRING, TUESDAY, TYPE_OF, UNGROUP, UNION, UPCASE, UPDATE, UUID
-local VALUES, VAR, WAIT, WEDNESDAY, WITHOUT, WITH_FIELDS, YEAR, ZIP
+local AND, APPEND, ARGS, ASC, BETWEEN, BETWEEN_DEPRECATED, BINARY, BRACKET
+local BRANCH, CHANGES, CHANGE_AT, COERCE_TO, CONCAT_MAP, CONFIG, CONTAINS
+local COUNT, DB, DB_CREATE, DB_DROP, DB_LIST, DEFAULT, DELETE, DELETE_AT, DESC
+local DIFFERENCE, DISTINCT, DOWNCASE, EQ, EQ_JOIN, ERROR, FILTER, FOR_EACH
+local FUNC, FUNCALL, GET, GET_ALL, GET_FIELD, GROUP, HAS_FIELDS, HTTP
+local INDEX_CREATE, INDEX_DROP, INDEX_LIST, INDEX_RENAME, INDEX_STATUS
+local INDEX_WAIT, INFO, INNER_JOIN, INSERT, INSERT_AT, IS_EMPTY, JAVASCRIPT
+local JSON, KEYS, LIMIT, LITERAL, MAKE_ARRAY, MAKE_OBJ, MAP, MATCH, MAXVAL
+local MERGE, MINVAL, NE, NTH, OBJECT, OFFSETS_OF, OR, ORDER_BY, OUTER_JOIN
+local PLUCK, PREPEND, RANDOM, RANGE, REBALANCE, RECONFIGURE, REDUCE, REPLACE
+local SAMPLE, SET_DIFFERENCE, SET_INSERT, SET_INTERSECTION, SET_UNION, SKIP
+local SLICE, SPLICE_AT, SPLIT, STATUS, SYNC, TABLE, TABLE_CREATE, TABLE_DROP
+local TABLE_LIST, TO_JSON_STRING, TYPE_OF, UNGROUP, UNION, UPCASE, UPDATE
+local UUID, VALUES, VAR, WAIT, WITHOUT, WITH_FIELDS, ZIP
 local ReQLAuthError, ReQLAvailabilityError, ReQLClientError, ReQLCompileError
 local ReQLDriverError, ReQLError, ReQLInternalError, ReQLNonExistenceError
 local ReQLOpFailedError, ReQLOpIndeterminateError, ReQLQueryLogicError
@@ -304,72 +296,46 @@ ast_methods = {
 
     return connection:_start(self, callback, options or {})
   end,
-  add = function(...) return ADD({}, ...) end,
   and_ = function(...) return AND({}, ...) end,
   append = function(...) return APPEND({}, ...) end,
-  april = function(...) return APRIL({}, ...) end,
   args = function(...) return ARGS({}, ...) end,
   asc = function(...) return ASC({}, ...) end,
-  august = function(...) return AUGUST({}, ...) end,
-  avg = function(...) return AVG({}, ...) end,
   between = function(arg0, arg1, arg2, opts) return BETWEEN(opts, arg0, arg1, arg2) end,
   between_deprecated = function(arg0, arg1, arg2, opts) return BETWEEN_DEPRECATED(opts, arg0, arg1, arg2) end,
   binary = function(...) return BINARY({}, ...) end,
   index = function(...) return BRACKET({}, ...) end,
   branch = function(...) return BRANCH({}, ...) end,
-  ceil = function(...) return CEIL({}, ...) end,
   changes = function(...) return CHANGES({}, ...) end,
   change_at = function(...) return CHANGE_AT({}, ...) end,
-  circle = function(...) return CIRCLE(get_opts(...)) end,
   coerce_to = function(...) return COERCE_TO({}, ...) end,
   concat_map = function(...) return CONCAT_MAP({}, ...) end,
   config = function(...) return CONFIG({}, ...) end,
   contains = function(...) return CONTAINS({}, ...) end,
   count = function(...) return COUNT({}, ...) end,
-  date = function(...) return DATE({}, ...) end,
-  day = function(...) return DAY({}, ...) end,
-  day_of_week = function(...) return DAY_OF_WEEK({}, ...) end,
-  day_of_year = function(...) return DAY_OF_YEAR({}, ...) end,
   db = function(...) return DB({}, ...) end,
   db_create = function(...) return DB_CREATE({}, ...) end,
   db_drop = function(...) return DB_DROP({}, ...) end,
   db_list = function(...) return DB_LIST({}, ...) end,
-  december = function(...) return DECEMBER({}, ...) end,
   default = function(...) return DEFAULT({}, ...) end,
   delete = function(...) return DELETE(get_opts(...)) end,
   delete_at = function(...) return DELETE_AT({}, ...) end,
   desc = function(...) return DESC({}, ...) end,
   difference = function(...) return DIFFERENCE({}, ...) end,
-  distance = function(arg0, arg1, opts) return DISTANCE(opts, arg0, arg1) end,
   distinct = function(...) return DISTINCT(get_opts(...)) end,
-  div = function(...) return DIV({}, ...) end,
   downcase = function(...) return DOWNCASE({}, ...) end,
-  during = function(arg0, arg1, arg2, opts) return DURING(opts, arg0, arg1, arg2) end,
-  epoch_time = function(...) return EPOCH_TIME({}, ...) end,
   eq = function(...) return EQ({}, ...) end,
   eq_join = function(...) return EQ_JOIN(get_opts(...)) end,
   error_ = function(...) return ERROR({}, ...) end,
-  february = function(...) return FEBRUARY({}, ...) end,
-  fill = function(...) return FILL({}, ...) end,
   filter = function(arg0, arg1, opts) return FILTER(opts, arg0, arg1) end,
-  floor = function(...) return FLOOR({}, ...) end,
   for_each = function(...) return FOR_EACH({}, ...) end,
-  friday = function(...) return FRIDAY({}, ...) end,
   func = function(...) return FUNC({}, ...) end,
   do_ = function(...) return FUNCALL({}, ...) end,
-  ge = function(...) return GE({}, ...) end,
-  geojson = function(...) return GEOJSON({}, ...) end,
   get = function(...) return GET({}, ...) end,
   get_all = function(...) return GET_ALL(get_opts(...)) end,
   get_field = function(...) return GET_FIELD({}, ...) end,
-  get_intersecting = function(...) return GET_INTERSECTING(get_opts(...)) end,
-  get_nearest = function(...) return GET_NEAREST(get_opts(...)) end,
   group = function(...) return GROUP(get_opts(...)) end,
-  gt = function(...) return GT({}, ...) end,
   has_fields = function(...) return HAS_FIELDS({}, ...) end,
-  hours = function(...) return HOURS({}, ...) end,
   http = function(...) return HTTP(get_opts(...)) end,
-  includes = function(...) return INCLUDES({}, ...) end,
   index_create = function(...) return INDEX_CREATE(get_opts(...)) end,
   index_drop = function(...) return INDEX_DROP({}, ...) end,
   index_list = function(...) return INDEX_LIST({}, ...) end,
@@ -380,52 +346,27 @@ ast_methods = {
   inner_join = function(...) return INNER_JOIN({}, ...) end,
   insert = function(arg0, arg1, opts) return INSERT(opts, arg0, arg1) end,
   insert_at = function(...) return INSERT_AT({}, ...) end,
-  intersects = function(...) return INTERSECTS({}, ...) end,
-  in_timezone = function(...) return IN_TIMEZONE({}, ...) end,
-  iso8601 = function(...) return ISO8601(get_opts(...)) end,
   is_empty = function(...) return IS_EMPTY({}, ...) end,
-  january = function(...) return JANUARY({}, ...) end,
   js = function(...) return JAVASCRIPT(get_opts(...)) end,
   json = function(...) return JSON({}, ...) end,
-  july = function(...) return JULY({}, ...) end,
-  june = function(...) return JUNE({}, ...) end,
   keys = function(...) return KEYS({}, ...) end,
-  le = function(...) return LE({}, ...) end,
   limit = function(...) return LIMIT({}, ...) end,
-  line = function(...) return LINE({}, ...) end,
   literal = function(...) return LITERAL({}, ...) end,
-  lt = function(...) return LT({}, ...) end,
   make_array = function(...) return MAKE_ARRAY({}, ...) end,
   make_obj = function(...) return MAKE_OBJ({}, ...) end,
   map = function(...) return MAP({}, ...) end,
-  march = function(...) return MARCH({}, ...) end,
   match = function(...) return MATCH({}, ...) end,
-  max = function(...) return MAX({}, ...) end,
   maxval = function(...) return MAXVAL({}, ...) end,
-  may = function(...) return MAY({}, ...) end,
   merge = function(...) return MERGE({}, ...) end,
-  min = function(...) return MIN({}, ...) end,
-  minutes = function(...) return MINUTES({}, ...) end,
   minval = function(...) return MINVAL({}, ...) end,
-  mod = function(...) return MOD({}, ...) end,
-  monday = function(...) return MONDAY({}, ...) end,
-  month = function(...) return MONTH({}, ...) end,
-  mul = function(...) return MUL({}, ...) end,
   ne = function(...) return NE({}, ...) end,
-  not_ = function(...) return NOT({}, ...) end,
-  november = function(...) return NOVEMBER({}, ...) end,
-  now = function(...) return NOW({}, ...) end,
   nth = function(...) return NTH({}, ...) end,
   object = function(...) return OBJECT({}, ...) end,
-  october = function(...) return OCTOBER({}, ...) end,
   offsets_of = function(...) return OFFSETS_OF({}, ...) end,
   or_ = function(...) return OR({}, ...) end,
   order_by = function(...) return ORDER_BY(get_opts(...)) end,
   outer_join = function(...) return OUTER_JOIN({}, ...) end,
   pluck = function(...) return PLUCK({}, ...) end,
-  point = function(...) return POINT({}, ...) end,
-  polygon = function(...) return POLYGON({}, ...) end,
-  polygon_sub = function(...) return POLYGON_SUB({}, ...) end,
   prepend = function(...) return PREPEND({}, ...) end,
   random = function(...) return RANDOM(get_opts(...)) end,
   range = function(...) return RANGE({}, ...) end,
@@ -433,11 +374,7 @@ ast_methods = {
   reconfigure = function(...) return RECONFIGURE({}, ...) end,
   reduce = function(...) return REDUCE({}, ...) end,
   replace = function(...) return REPLACE(get_opts(...)) end,
-  round = function(...) return ROUND({}, ...) end,
   sample = function(...) return SAMPLE({}, ...) end,
-  saturday = function(...) return SATURDAY({}, ...) end,
-  seconds = function(...) return SECONDS({}, ...) end,
-  september = function(...) return SEPTEMBER({}, ...) end,
   set_difference = function(...) return SET_DIFFERENCE({}, ...) end,
   set_insert = function(...) return SET_INSERT({}, ...) end,
   set_intersection = function(...) return SET_INTERSECTION({}, ...) end,
@@ -447,23 +384,12 @@ ast_methods = {
   splice_at = function(...) return SPLICE_AT({}, ...) end,
   split = function(...) return SPLIT({}, ...) end,
   status = function(...) return STATUS({}, ...) end,
-  sub = function(...) return SUB({}, ...) end,
-  sum = function(...) return SUM({}, ...) end,
-  sunday = function(...) return SUNDAY({}, ...) end,
   sync = function(...) return SYNC({}, ...) end,
   table = function(...) return TABLE(get_opts(...)) end,
   table_create = function(...) return TABLE_CREATE(get_opts(...)) end,
   table_drop = function(...) return TABLE_DROP({}, ...) end,
   table_list = function(...) return TABLE_LIST({}, ...) end,
-  thursday = function(...) return THURSDAY({}, ...) end,
-  time = function(...) return TIME({}, ...) end,
-  timezone = function(...) return TIMEZONE({}, ...) end,
-  time_of_day = function(...) return TIME_OF_DAY({}, ...) end,
-  to_epoch_time = function(...) return TO_EPOCH_TIME({}, ...) end,
-  to_geojson = function(...) return TO_GEOJSON({}, ...) end,
-  to_iso8601 = function(...) return TO_ISO8601({}, ...) end,
   to_json_string = function(...) return TO_JSON_STRING({}, ...) end,
-  tuesday = function(...) return TUESDAY({}, ...) end,
   type_of = function(...) return TYPE_OF({}, ...) end,
   ungroup = function(...) return UNGROUP({}, ...) end,
   union = function(...) return UNION({}, ...) end,
@@ -473,10 +399,8 @@ ast_methods = {
   values = function(...) return VALUES({}, ...) end,
   var = function(...) return VAR({}, ...) end,
   wait = function(...) return WAIT({}, ...) end,
-  wednesday = function(...) return WEDNESDAY({}, ...) end,
   without = function(...) return WITHOUT({}, ...) end,
   with_fields = function(...) return WITH_FIELDS({}, ...) end,
-  year = function(...) return YEAR({}, ...) end,
   zip = function(...) return ZIP({}, ...) end
 }
 
@@ -725,72 +649,46 @@ DATUMTERM = ast(
   }
 )
 
-ADD = ast('ADD', {tt = 24, st = 'add'})
 AND = ast('AND', {tt = 67, st = 'and_'})
 APPEND = ast('APPEND', {tt = 29, st = 'append'})
-APRIL = ast('APRIL', {tt = 117, st = 'april'})
 ARGS = ast('ARGS', {tt = 154, st = 'args'})
 ASC = ast('ASC', {tt = 73, st = 'asc'})
-AUGUST = ast('AUGUST', {tt = 121, st = 'august'})
-AVG = ast('AVG', {tt = 146, st = 'avg'})
 BETWEEN = ast('BETWEEN', {tt = 182, st = 'between'})
 BETWEEN_DEPRECATED = ast('BETWEEN_DEPRECATED', {tt = 36, st = 'between_deprecated'})
 BINARY = ast('BINARY', {tt = 155, st = 'binary'})
 BRACKET = ast('BRACKET', {tt = 170, st = 'index'})
 BRANCH = ast('BRANCH', {tt = 65, st = 'branch'})
-CEIL = ast('CEIL', {tt = 184, st = 'ceil'})
 CHANGES = ast('CHANGES', {tt = 152, st = 'changes'})
 CHANGE_AT = ast('CHANGE_AT', {tt = 84, st = 'change_at'})
-CIRCLE = ast('CIRCLE', {tt = 165, st = 'circle'})
 COERCE_TO = ast('COERCE_TO', {tt = 51, st = 'coerce_to'})
 CONCAT_MAP = ast('CONCAT_MAP', {tt = 40, st = 'concat_map'})
 CONFIG = ast('CONFIG', {tt = 174, st = 'config'})
 CONTAINS = ast('CONTAINS', {tt = 93, st = 'contains'})
 COUNT = ast('COUNT', {tt = 43, st = 'count'})
-DATE = ast('DATE', {tt = 106, st = 'date'})
-DAY = ast('DAY', {tt = 130, st = 'day'})
-DAY_OF_WEEK = ast('DAY_OF_WEEK', {tt = 131, st = 'day_of_week'})
-DAY_OF_YEAR = ast('DAY_OF_YEAR', {tt = 132, st = 'day_of_year'})
 DB = ast('DB', {tt = 14, st = 'db'})
 DB_CREATE = ast('DB_CREATE', {tt = 57, st = 'db_create'})
 DB_DROP = ast('DB_DROP', {tt = 58, st = 'db_drop'})
 DB_LIST = ast('DB_LIST', {tt = 59, st = 'db_list'})
-DECEMBER = ast('DECEMBER', {tt = 125, st = 'december'})
 DEFAULT = ast('DEFAULT', {tt = 92, st = 'default'})
 DELETE = ast('DELETE', {tt = 54, st = 'delete'})
 DELETE_AT = ast('DELETE_AT', {tt = 83, st = 'delete_at'})
 DESC = ast('DESC', {tt = 74, st = 'desc'})
 DIFFERENCE = ast('DIFFERENCE', {tt = 95, st = 'difference'})
-DISTANCE = ast('DISTANCE', {tt = 162, st = 'distance'})
 DISTINCT = ast('DISTINCT', {tt = 42, st = 'distinct'})
-DIV = ast('DIV', {tt = 27, st = 'div'})
 DOWNCASE = ast('DOWNCASE', {tt = 142, st = 'downcase'})
-DURING = ast('DURING', {tt = 105, st = 'during'})
-EPOCH_TIME = ast('EPOCH_TIME', {tt = 101, st = 'epoch_time'})
 EQ = ast('EQ', {tt = 17, st = 'eq'})
 EQ_JOIN = ast('EQ_JOIN', {tt = 50, st = 'eq_join'})
 ERROR = ast('ERROR', {tt = 12, st = 'error_'})
-FEBRUARY = ast('FEBRUARY', {tt = 115, st = 'february'})
-FILL = ast('FILL', {tt = 167, st = 'fill'})
 FILTER = ast('FILTER', {tt = 39, st = 'filter'})
-FLOOR = ast('FLOOR', {tt = 183, st = 'floor'})
 FOR_EACH = ast('FOR_EACH', {tt = 68, st = 'for_each'})
-FRIDAY = ast('FRIDAY', {tt = 111, st = 'friday'})
 FUNC = ast('FUNC', {tt = 69, st = 'func'})
 FUNCALL = ast('FUNCALL', {tt = 64, st = 'do_'})
-GE = ast('GE', {tt = 22, st = 'ge'})
-GEOJSON = ast('GEOJSON', {tt = 157, st = 'geojson'})
 GET = ast('GET', {tt = 16, st = 'get'})
 GET_ALL = ast('GET_ALL', {tt = 78, st = 'get_all'})
 GET_FIELD = ast('GET_FIELD', {tt = 31, st = 'get_field'})
-GET_INTERSECTING = ast('GET_INTERSECTING', {tt = 166, st = 'get_intersecting'})
-GET_NEAREST = ast('GET_NEAREST', {tt = 168, st = 'get_nearest'})
 GROUP = ast('GROUP', {tt = 144, st = 'group'})
-GT = ast('GT', {tt = 21, st = 'gt'})
 HAS_FIELDS = ast('HAS_FIELDS', {tt = 32, st = 'has_fields'})
-HOURS = ast('HOURS', {tt = 133, st = 'hours'})
 HTTP = ast('HTTP', {tt = 153, st = 'http'})
-INCLUDES = ast('INCLUDES', {tt = 164, st = 'includes'})
 INDEX_CREATE = ast('INDEX_CREATE', {tt = 75, st = 'index_create'})
 INDEX_DROP = ast('INDEX_DROP', {tt = 76, st = 'index_drop'})
 INDEX_LIST = ast('INDEX_LIST', {tt = 77, st = 'index_list'})
@@ -801,52 +699,27 @@ INFO = ast('INFO', {tt = 79, st = 'info'})
 INNER_JOIN = ast('INNER_JOIN', {tt = 48, st = 'inner_join'})
 INSERT = ast('INSERT', {tt = 56, st = 'insert'})
 INSERT_AT = ast('INSERT_AT', {tt = 82, st = 'insert_at'})
-INTERSECTS = ast('INTERSECTS', {tt = 163, st = 'intersects'})
-IN_TIMEZONE = ast('IN_TIMEZONE', {tt = 104, st = 'in_timezone'})
-ISO8601 = ast('ISO8601', {tt = 99, st = 'iso8601'})
 IS_EMPTY = ast('IS_EMPTY', {tt = 86, st = 'is_empty'})
-JANUARY = ast('JANUARY', {tt = 114, st = 'january'})
 JAVASCRIPT = ast('JAVASCRIPT', {tt = 11, st = 'js'})
 JSON = ast('JSON', {tt = 98, st = 'json'})
-JULY = ast('JULY', {tt = 120, st = 'july'})
-JUNE = ast('JUNE', {tt = 119, st = 'june'})
 KEYS = ast('KEYS', {tt = 94, st = 'keys'})
-LE = ast('LE', {tt = 20, st = 'le'})
 LIMIT = ast('LIMIT', {tt = 71, st = 'limit'})
-LINE = ast('LINE', {tt = 160, st = 'line'})
 LITERAL = ast('LITERAL', {tt = 137, st = 'literal'})
-LT = ast('LT', {tt = 19, st = 'lt'})
 MAKE_ARRAY = ast('MAKE_ARRAY', {tt = 2, st = 'make_array'})
 MAKE_OBJ = ast('MAKE_OBJ', {tt = 3, st = 'make_obj'})
 MAP = ast('MAP', {tt = 38, st = 'map'})
-MARCH = ast('MARCH', {tt = 116, st = 'march'})
 MATCH = ast('MATCH', {tt = 97, st = 'match'})
-MAX = ast('MAX', {tt = 148, st = 'max'})
 MAXVAL = ast('MAXVAL', {tt = 181, st = 'maxval'})
-MAY = ast('MAY', {tt = 118, st = 'may'})
 MERGE = ast('MERGE', {tt = 35, st = 'merge'})
-MIN = ast('MIN', {tt = 147, st = 'min'})
-MINUTES = ast('MINUTES', {tt = 134, st = 'minutes'})
 MINVAL = ast('MINVAL', {tt = 180, st = 'minval'})
-MOD = ast('MOD', {tt = 28, st = 'mod'})
-MONDAY = ast('MONDAY', {tt = 107, st = 'monday'})
-MONTH = ast('MONTH', {tt = 129, st = 'month'})
-MUL = ast('MUL', {tt = 26, st = 'mul'})
 NE = ast('NE', {tt = 18, st = 'ne'})
-NOT = ast('NOT', {tt = 23, st = 'not_'})
-NOVEMBER = ast('NOVEMBER', {tt = 124, st = 'november'})
-NOW = ast('NOW', {tt = 103, st = 'now'})
 NTH = ast('NTH', {tt = 45, st = 'nth'})
 OBJECT = ast('OBJECT', {tt = 143, st = 'object'})
-OCTOBER = ast('OCTOBER', {tt = 123, st = 'october'})
 OFFSETS_OF = ast('OFFSETS_OF', {tt = 87, st = 'offsets_of'})
 OR = ast('OR', {tt = 66, st = 'or_'})
 ORDER_BY = ast('ORDER_BY', {tt = 41, st = 'order_by'})
 OUTER_JOIN = ast('OUTER_JOIN', {tt = 49, st = 'outer_join'})
 PLUCK = ast('PLUCK', {tt = 33, st = 'pluck'})
-POINT = ast('POINT', {tt = 159, st = 'point'})
-POLYGON = ast('POLYGON', {tt = 161, st = 'polygon'})
-POLYGON_SUB = ast('POLYGON_SUB', {tt = 171, st = 'polygon_sub'})
 PREPEND = ast('PREPEND', {tt = 80, st = 'prepend'})
 RANDOM = ast('RANDOM', {tt = 151, st = 'random'})
 RANGE = ast('RANGE', {tt = 173, st = 'range'})
@@ -854,11 +727,7 @@ REBALANCE = ast('REBALANCE', {tt = 179, st = 'rebalance'})
 RECONFIGURE = ast('RECONFIGURE', {tt = 176, st = 'reconfigure'})
 REDUCE = ast('REDUCE', {tt = 37, st = 'reduce'})
 REPLACE = ast('REPLACE', {tt = 55, st = 'replace'})
-ROUND = ast('ROUND', {tt = 185, st = 'round'})
 SAMPLE = ast('SAMPLE', {tt = 81, st = 'sample'})
-SATURDAY = ast('SATURDAY', {tt = 112, st = 'saturday'})
-SECONDS = ast('SECONDS', {tt = 135, st = 'seconds'})
-SEPTEMBER = ast('SEPTEMBER', {tt = 122, st = 'september'})
 SET_DIFFERENCE = ast('SET_DIFFERENCE', {tt = 91, st = 'set_difference'})
 SET_INSERT = ast('SET_INSERT', {tt = 88, st = 'set_insert'})
 SET_INTERSECTION = ast('SET_INTERSECTION', {tt = 89, st = 'set_intersection'})
@@ -868,23 +737,12 @@ SLICE = ast('SLICE', {tt = 30, st = 'slice'})
 SPLICE_AT = ast('SPLICE_AT', {tt = 85, st = 'splice_at'})
 SPLIT = ast('SPLIT', {tt = 149, st = 'split'})
 STATUS = ast('STATUS', {tt = 175, st = 'status'})
-SUB = ast('SUB', {tt = 25, st = 'sub'})
-SUM = ast('SUM', {tt = 145, st = 'sum'})
-SUNDAY = ast('SUNDAY', {tt = 113, st = 'sunday'})
 SYNC = ast('SYNC', {tt = 138, st = 'sync'})
 TABLE = ast('TABLE', {tt = 15, st = 'table'})
 TABLE_CREATE = ast('TABLE_CREATE', {tt = 60, st = 'table_create'})
 TABLE_DROP = ast('TABLE_DROP', {tt = 61, st = 'table_drop'})
 TABLE_LIST = ast('TABLE_LIST', {tt = 62, st = 'table_list'})
-THURSDAY = ast('THURSDAY', {tt = 110, st = 'thursday'})
-TIME = ast('TIME', {tt = 136, st = 'time'})
-TIMEZONE = ast('TIMEZONE', {tt = 127, st = 'timezone'})
-TIME_OF_DAY = ast('TIME_OF_DAY', {tt = 126, st = 'time_of_day'})
-TO_EPOCH_TIME = ast('TO_EPOCH_TIME', {tt = 102, st = 'to_epoch_time'})
-TO_GEOJSON = ast('TO_GEOJSON', {tt = 158, st = 'to_geojson'})
-TO_ISO8601 = ast('TO_ISO8601', {tt = 100, st = 'to_iso8601'})
 TO_JSON_STRING = ast('TO_JSON_STRING', {tt = 172, st = 'to_json_string'})
-TUESDAY = ast('TUESDAY', {tt = 108, st = 'tuesday'})
 TYPE_OF = ast('TYPE_OF', {tt = 52, st = 'type_of'})
 UNGROUP = ast('UNGROUP', {tt = 150, st = 'ungroup'})
 UNION = ast('UNION', {tt = 44, st = 'union'})
@@ -894,10 +752,8 @@ UUID = ast('UUID', {tt = 169, st = 'uuid'})
 VALUES = ast('VALUES', {tt = 186, st = 'values'})
 VAR = ast('VAR', {tt = 10, st = 'var'})
 WAIT = ast('WAIT', {tt = 177, st = 'wait'})
-WEDNESDAY = ast('WEDNESDAY', {tt = 109, st = 'wednesday'})
 WITHOUT = ast('WITHOUT', {tt = 34, st = 'without'})
 WITH_FIELDS = ast('WITH_FIELDS', {tt = 96, st = 'with_fields'})
-YEAR = ast('YEAR', {tt = 128, st = 'year'})
 ZIP = ast('ZIP', {tt = 72, st = 'zip'})
 
 r.connect = class(
@@ -1196,7 +1052,7 @@ r.connect = class(
         self.int_to_bytes(#data, 4) ..
         data
       )
-    end
+    end,
     bytes_to_int = function(str)
       local t = {str:byte(1,-1)}
       local n = 0
@@ -1204,7 +1060,7 @@ r.connect = class(
         n = n + t[k] * 2 ^ ((k - 1) * 8)
       end
       return n
-    end
+    end,
     int_to_bytes = function(num, bytes)
       local res = {}
       local mul = 0
