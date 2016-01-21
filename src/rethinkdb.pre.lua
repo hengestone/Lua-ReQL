@@ -829,7 +829,7 @@ r.connect = class(
         self.int_to_bytes(#data, 4) ..
         data
       )
-    end
+    end,
     bytes_to_int = function(str)
       local t = {str:byte(1,-1)}
       local n = 0
@@ -837,7 +837,7 @@ r.connect = class(
         n = n + t[k] * 2 ^ ((k - 1) * 8)
       end
       return n
-    end
+    end,
     int_to_bytes = function(num, bytes)
       local res = {}
       local mul = 0

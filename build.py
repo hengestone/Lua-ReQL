@@ -123,8 +123,8 @@ def build():
     }
 
     for path in pathlib.Path('src').glob('*.pre.lua'):
-        path.with_suffix('').with_suffix('.lua').write_text(
-            BuildFormat().vformat(path.read_text(), (), formatter)
+        pathlib.Path(str(path).split('.')[0]).with_suffix('.lua').open('w').write(
+            BuildFormat().vformat(path.open().read(), (), formatter)
         )
 
     print('building successful')
